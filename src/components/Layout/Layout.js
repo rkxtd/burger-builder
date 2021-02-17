@@ -4,12 +4,17 @@ import Toolbar from "../Navigation/Toolbar/Toolbar";
 import SideDrawer from "../Navigation/SideDrawer/SideDrawer";
 
 function Layout(props) {
-  const [sideDrawerOpen, setSideDrawerOpen] = useState(true);
+  const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
   const closeSideDrawerHandler = () => {
     setSideDrawerOpen(false);
   };
+
+  const openSideDrawerHandler = () => {
+    setSideDrawerOpen(true);
+  };
+
   return <Fragment>
-    <Toolbar />
+    <Toolbar openSideDrawer={openSideDrawerHandler} />
     <SideDrawer open={sideDrawerOpen} closeHandler={closeSideDrawerHandler}/>
     <main className={classes.Content}>
       {props.children}
